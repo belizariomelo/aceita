@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Romance</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: rgb(255, 140, 180);
+		}
+
+
+	.container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		text-align: center;
+	}
+
+	.question{
+		font-family: Arial;
+		font-size: 33px;
+		font-style: italic;
+		margin-bottom: 50px;
+	}
+
+	.message{
+		font-family: Arial;
+		font-size: 24px;
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		display: none;
+	}
+
+	.button{
+		position: absolute;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	.yes{
+		background-color: rgb(255, 60, 80);
+		width: 100px;
+		height: 50px;
+		border: none;
+		border-radius: 10px;
+		margin-right: 10px;
+	}
+
+	.no{
+		background-color: rgb(255, 60, 80);
+		width: 100px;
+		height: 50px;
+		border: none;
+		border-radius: 10px;
+		margin-left: 10px;
+	}
+
+	.yes:hover{
+		background-color: rgb(200, 0, 20);
+	}
+
+	.no:hover{
+		background-color: rgb(200, 0, 20);
+	}
+
+	.circle{
+		background-color: rgb(255, 60, 80);
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		margin: 0 10px;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="question">Quer namorar comigo?</div>
+		<div class="button-container">
+			<button class="button yes">
+				<span>Sim</span>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</button>
+			<button class="button no">
+				<span>Não</span>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</button>
+		</div>
+		<div class="message">Tinha certeza que você ia dizer sim <3</div>
+	</div>
+
+<script>
+	const yesButton = document.querySelector('.yes');
+	const noButton = document.querySelector('.no');
+	const message = document.querySelector('.message');
+
+	function moveButton() {
+		const x = Math.floor(Math.random() * 440) + 100;
+		const y = Math.floor(Math.random() * 440) + 100;
+		noButton.style.left = `${x}px`;
+		noButton.style.top = `${y}px`;
+	}
+
+	noButton.addEventListener('mouseover', () => {
+		moveButton();
+	});
+
+	yesButton.addEventListener('click', () => {
+		message.style.display = 'block';
+	});
+</script>
+</body>
+</html>
